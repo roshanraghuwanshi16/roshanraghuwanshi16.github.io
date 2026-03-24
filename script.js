@@ -1,16 +1,17 @@
-/* typing effect */
-
 const text="Professional Web Developer";
 let i=0;
 
 function typing(){
 if(i<text.length){
-document.getElementById("typing").innerHTML+=text.charAt(i);
+document.getElementById("typing").textContent+=text.charAt(i);
 i++;
 setTimeout(typing,50);
 }
 }
+
+window.onload=function(){
 typing();
+}
 
 /* scroll animation */
 
@@ -36,3 +37,14 @@ const menu=document.getElementById("menu");
 menuBtn.onclick=function(){
 menu.classList.toggle("active");
 };
+const lenis = new Lenis({
+duration: 1.2,
+smooth: true
+});
+
+function raf(time) {
+lenis.raf(time);
+requestAnimationFrame(raf);
+}
+
+requestAnimationFrame(raf);
